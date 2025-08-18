@@ -1,16 +1,20 @@
+
 import { useState } from "react";
 
-function CatCard({ Card}) {
-    const caturl = new URL(Card.url, import.meta.url).href
-  return (
-    <div
-      className="min-w-[280px] bg-white rounded-2xl shadow-lg p-6 flex flex-col items-start border border-gray-200 hover:shadow-xl transition cursor-pointer relative"
-    ><img src="catUrl"></img>
-      <div className="mt-3 flex items-center space-x-3">a
-      </div>
+export default function CatCard({ imageUrl, tags }) {
+  const [likes, setLikes] = useState(0);
 
+  return (
+    <div className="card">
+      <img src={imageUrl} alt="A random cat" onClick={() => setLikes(likes + 1)} />
+      {tags && tags.length > 0 && (
+        <div className="tags">
+          {tags.map((tag, index) => (
+            <span key={index} className="tag">{tag}</span>
+          ))}
+        </div>
+      )}
+      <button onClick={() => setLikes(likes + 1)}>❤️ Like ({likes})</button>
     </div>
   );
 }
-
-export default CatCard;
