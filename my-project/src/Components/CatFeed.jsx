@@ -7,7 +7,7 @@ export default function CatFeed(){
 useEffect(() => {
     const iterate = () => {
         for(let i =0; i <10 ; i++){
-            fetch("https://cataas.com/cat",
+            fetch("https://cataas.com/cat?json=true",
             {
                 method: "GET",
                 headers: {
@@ -21,7 +21,7 @@ useEffect(() => {
             setCat('');
         }   
     }
-  
+    
     }, [cats]);
 
     return(
