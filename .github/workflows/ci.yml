@@ -32,4 +32,4 @@ jobs:
         run: npm test                        
 
       - name: Build (compilar)
-        run: npm run build                   
+        run: node index.js                   
