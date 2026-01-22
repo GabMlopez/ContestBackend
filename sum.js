@@ -27,4 +27,32 @@ async function sumar(req,res) {
         });
     }
 }
+
+async function multiplicar(req,res) {
+    try{
+        const {num1,num2} = req.body;
+        const mul = num1*num2;
+        res.status(200).json({
+            mul
+        });
+    }catch(err){
+        res.status(500).json({
+            message:"No se pudo hacer la multiplicacion"
+        });
+    }
+}
+
+async function dividir(req,res) {
+    try{
+        const {num1,num2} = req.body;
+        const div = num1/num2;
+        res.status(200).json({
+            div
+        });
+    }catch(err){
+        res.status(500).json({
+            message:"No se pudo hacer la división"
+        });
+    }
+}
 module.exports = router;

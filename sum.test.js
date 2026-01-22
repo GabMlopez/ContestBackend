@@ -50,4 +50,16 @@ describe('POST /sum (probando el router completo con Jest puro)', () => {
     expect(mockRes.json).toHaveBeenCalledWith({ message: "No se pudo hacer la suma" });
   });
 
+  test('Comprueba no vacíos de al menos un número', () => {
+    mockReq.body = { num1: 7 };
+
+    const next = jest.fn();
+    
+    router(mockReq, mockRes, next);
+
+    expect(mockRes.status).toHaveBeenCalledWith(400);
+    expect(mockRes.json).toHaveBeenCalledWith({ 
+      message: "Ingrese al menos 2 numeros para realizar la suma" 
+    });
+  });
 });
